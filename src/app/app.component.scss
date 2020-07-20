@@ -39,7 +39,7 @@ header{
         padding-top: 20px;
         a{
           font-family: "Mulish", sans-serif;
-          color: white;
+          color: white !important;
           font-weight: 700;
           font-size: 15px;
         }
@@ -879,6 +879,7 @@ font-weight: 700;
   // ************************choose*************************************
 #choose{
   padding:40px 0px;
+  background-color: white !important;
   .choose-head{
     h4{
       font-size: 32px;

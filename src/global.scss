@@ -682,7 +682,7 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
         // float: left;
         // padding: 19px 0px;
         h3{
-          font-family: myFirstFont;
+          font-family: arial !important;
           font-size: 41px;
           color: white;
           margin: 0;
@@ -1388,6 +1388,7 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
       
         // ************************choose*************************************
       #choose{
+        background:white !important;
         padding:40px 0px;
         .choose-head{
           h4{
@@ -2452,7 +2453,9 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
       
 
 
-
+*{
+  font: arial !important;
+}
 
 
 
