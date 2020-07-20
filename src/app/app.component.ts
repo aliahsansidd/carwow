@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,39 +11,36 @@ declare const $: any;
 })
 export class AppComponent implements OnInit {
   mobileNav = false;
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400
-  };
-  @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
-  @ViewChild('slideWithNav2', { static: false }) slideWithNav2: IonSlides;
-  @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
-  sliderOne: any;
-  sliderTwo: any;
-  sliderThree: any;
-
-
-  //Configuration for each Slider
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay: true
-  };
-  slideOptsTwo = {
-    initialSlide: 1,
-    slidesPerView: 2,
-    loop: true,
-    centeredSlides: true,
-    spaceBetween: 20
-  };
-  slideOptsThree = {
-    initialSlide: 0,
-    slidesPerView: 3
-  };
+  one = true;
+  boxType = 'boxOne';
+  navone = true;
+  navboxType = 'boxOne';
+  tabTrigger(item) {
+    // debugger;
+    let boxType = '';
+    if (item == "boxOne") {
+      boxType = 'boxOne';
+    }
+    if (item == "boxTwo") {
+      boxType = 'boxTwo';
+    }   
+    this.boxType = boxType;
+  }
+  navTrigger(item) {
+    // debugger;
+    let navboxType = '';
+    if (item == "navboxOne") {
+      navboxType = 'navboxOne';
+    }
+    if (item == "navboxTwo") {
+      navboxType = 'navboxTwo';
+    }   
+    this.navboxType = navboxType;
+  }
   specialOffer = [
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-1.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -53,7 +49,7 @@ export class AppComponent implements OnInit {
    },
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-2.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -62,7 +58,7 @@ export class AppComponent implements OnInit {
    },
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-3.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -71,7 +67,7 @@ export class AppComponent implements OnInit {
    },
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-4.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -80,7 +76,7 @@ export class AppComponent implements OnInit {
    },
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-5.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -89,7 +85,7 @@ export class AppComponent implements OnInit {
    },
    {
     logo : 'assets/img/download.png',
-    img : './assets/img/car-1.png',
+    img : './assets/img/cardslider/card-6.jpg',
     brand : 'Mercedes',
     class : 'A-Class',
     discription : 'Â£1,500 manufacturer support now available on both cash and finance purchases',
@@ -136,76 +132,7 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-
     this.initializeApp();
-    this.sliderOne =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 995
-        },
-        {
-          id: 925
-        },
-        {
-          id: 940
-        },
-        {
-          id: 943
-        },
-        {
-          id: 944
-        }
-      ]
-    };
-    //Item object for Food
-    this.sliderTwo =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 324
-        },
-        {
-          id: 321
-        },
-        {
-          id: 435
-        },
-        {
-          id: 524
-        },
-        {
-          id: 235
-        }
-      ]
-    };
-    //Item object for Fashion
-    this.sliderThree =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 643
-        },
-        {
-          id: 532
-        },
-        {
-          id: 232
-        },
-        {
-          id: 874
-        },
-        {
-          id: 193
-        }
-      ]
-    };
   }
 
   initializeApp() {
@@ -221,39 +148,5 @@ export class AppComponent implements OnInit {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
-   //Move to Next slide
-   slideNext(object, slideView) {
-    slideView.slideNext(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });
-  }
-
-  //Move to previous slide
-  slidePrev(object, slideView) {
-    slideView.slidePrev(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });;
-  }
-
-  //Method called when slide is changed by drag or navigation
-  SlideDidChange(object, slideView) {
-    this.checkIfNavDisabled(object, slideView);
-  }
-
-  //Call methods to check if slide is first or last to enable disbale navigation  
-  checkIfNavDisabled(object, slideView) {
-    this.checkisBeginning(object, slideView);
-    this.checkisEnd(object, slideView);
-  }
-
-  checkisBeginning(object, slideView) {
-    slideView.isBeginning().then((istrue) => {
-      object.isBeginningSlide = istrue;
-    });
-  }
-  checkisEnd(object, slideView) {
-    slideView.isEnd().then((istrue) => {
-      object.isEndSlide = istrue;
-    });
-  }
+  
 }
