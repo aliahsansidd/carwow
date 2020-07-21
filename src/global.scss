@@ -517,17 +517,17 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
         background: #00a4ff;
         // padding: 24px 0px;
         .logo-box{
-          width: 13%;
+          width: 14%;
           float: left;
           // padding: 19px 0px;
           h3{
-            font-family: myFirstFont;
-            font-size: 41px;
+            font-family: arial !important;
+            font-size: 37px;
           color: white;
           margin: 0;
-          padding-top: 9px;
+          padding-top: 11px;
           @media (max-width: 1200px) {
-            font-size: 34px;
+            font-size: 32px;
             padding-top: 15px;
             }
           }
@@ -549,7 +549,7 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
               padding-top: 20px;
               a{
                 font-family: "Mulish", sans-serif;
-                color: white;
+                color: white !important;
                 font-weight: 700;
                 font-size: 15px;
               }
@@ -571,6 +571,8 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
                           display: inline;
                           a{
                           font-family: "Mulish", sans-serif;
+                          color: black !important;
+
                             &:hover{
                               text-decoration: none;
                               cursor: pointer !important;
@@ -599,11 +601,29 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
                         color:black;
                         font-family: "Mulish", sans-serif;
                         font-size: 15px;
+                          padding: 10px;
+
                         &:hover{
                           background: #00a4ff;
-                          padding: 10px;
+                          // padding: 10px;
                           color:white;
                       border-radius: 5px; 
+                        }
+                        a{
+                          color:black !important;
+                          font-family: "Mulish", sans-serif !important;
+                          font-size: 13.9px !important;
+                          font-weight: 400 !important;
+                          // padding: 10px;
+                          // padding: 10px;
+
+                          &:hover{
+                            background: #00a4ff;
+                            // padding: 10px;
+                            color:white;
+                        border-radius: 5px; 
+                          }
+
                         }
                       }
                     }
@@ -1970,6 +1990,7 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
       // ------------------------ rp-are ----------------
       
       .rp-are{
+        background: white;
         padding: 71px 0px;
         padding-top: 21px;
         h3{
@@ -2425,7 +2446,7 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
       .bot-content{
         padding: 0px 23px;
         h6{
-          font-size: 18px;
+          font-size: 14px;
           line-height: 28px;
           text-decoration: underline;
           font-weight: 700;
@@ -2436,16 +2457,17 @@ button.slick-prev.slick-arrow.slick-slide.slick-current.slick-active {
           display: block;
           font-weight: 400;
           color: rgba(0,0,0,.87);
-          font-size: 17px;
+          font-size: 14px;
       
         }
         .call-mail{
           color: rgba(0,0,0,.87);
-          font-size: 18px;
+          font-size: 14px;
+          margin:0;
       
           span{
             color: #00a4ff;
-          font-size: 18px;
+          font-size: 14px;
       
           }
         }
